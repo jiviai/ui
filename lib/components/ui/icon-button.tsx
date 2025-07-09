@@ -1,0 +1,120 @@
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+import { Icon } from "../icon";
+
+/**
+ * Configuration object for icon button variants using class-variance-authority.
+ * Defines styling variants for different states, sizes, and appearances of icon buttons.
+ */
+const iconButtonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 ease-in-out disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  {
+    variants: {
+      variant: {
+        primary:
+          "bg-orange-500 text-white shadow-xs active:bg-orange-800 active:bg-none",
+        secondary:
+          "bg-white text-orange-500 border border-orange-300 shadow-xs active:bg-orange-100 active:border-orange-300",
+        tertiary: "bg-transparent text-orange-500",
+      },
+      size: {
+        large: "h-14 w-14 text-base",
+        medium: "h-12 w-12 text-sm",
+        small: "h-10 w-10 text-xs",
+      },
+      state: {
+        default: "",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      size: "medium",
+      state: "default",
+    },
+    compoundVariants: [
+      {
+        variant: "primary",
+        className:
+          "disabled:bg-gray-300 disabled:text-white disabled:shadow-none disabled:active:bg-gray-300",
+      },
+      {
+        variant: "secondary",
+        className:
+          "disabled:bg-white disabled:border-gray-200 disabled:text-gray-300 disabled:shadow-none disabled:active:bg-white disabled:active:border-gray-200",
+      },
+      {
+        variant: "tertiary",
+        className: "disabled:text-gray-300 disabled:active:text-gray-300",
+      },
+    ],
+  }
+);
+
+/**
+ * Props interface for the IconButton component.
+ * Extends standard HTML button props with additional icon button specific options.
+ */
+interface IconButtonProps
+  extends React.ComponentProps<"button">,
+    VariantProps<typeof iconButtonVariants> {
+  /** Whether to render as a child component using Radix UI Slot */
+  asChild?: boolean;
+  /** Name of the icon to display (defaults to "chevron_right") */
+  iconName?: string;
+  /** Whether the button is disabled */
+  disabled?: boolean;
+}
+
+/**
+ * A customizable icon button component with multiple variants and sizes.
+ *
+ * @param className - Additional CSS classes to apply
+ * @param variant - Button style variant: 'primary', 'secondary', or 'tertiary'
+ * @param size - Button size: 'large', 'medium', or 'small'
+ * @param state - Button state (currently only 'default' is available)
+ * @param asChild - Whether to render as a child component using Radix UI Slot
+ * @param iconName - Name of the icon to display (defaults to "chevron_right")
+ * @param disabled - Whether the button is disabled
+ * @param props - Additional HTML button props
+ * @returns A styled icon button component
+ */
+function IconButton({
+  className,
+  variant,
+  size,
+  state,
+  asChild = false,
+  iconName = "chevron_right",
+  disabled,
+  ...props
+}: IconButtonProps) {
+  const Comp = asChild ? Slot : "button";
+
+  const getIconSize = () => {
+    switch (size) {
+      case "large":
+        return "24px";
+      case "small":
+        return "16px";
+      case "medium":
+      default:
+        return "20px";
+    }
+  };
+
+  return (
+    <Comp
+      data-slot="icon-button"
+      className={cn(iconButtonVariants({ variant, size, state, className }))}
+      disabled={disabled}
+      {...props}
+    >
+      <Icon size={getIconSize()} name={iconName} />
+    </Comp>
+  );
+}
+
+export { IconButton, iconButtonVariants };
