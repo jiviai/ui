@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Icon } from "../../lib/components/icon";
 
 const meta = {
-  title: "UI/Icon",
+  title: "Atoms/Icon",
   component: Icon,
   parameters: {
     layout: "centered",

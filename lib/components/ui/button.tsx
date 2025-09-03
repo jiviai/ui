@@ -26,14 +26,10 @@ const buttonVariants = cva(
         medium: "h-12 px-5 py-3 text-sm",
         small: "h-10 px-4 py-2.5 text-xs",
       },
-      state: {
-        default: "",
-      },
     },
     defaultVariants: {
       variant: "primary",
       size: "medium",
-      state: "default",
     },
     compoundVariants: [
       {
@@ -48,19 +44,65 @@ const buttonVariants = cva(
       },
       {
         variant: "tertiary",
-        className: "disabled:text-gray-300 disabled:active:text-gray-300",
+        className:
+          "disabled:text-gray-300 disabled:active:text-gray-300 py-1 px-0.5 h-fit",
       },
     ],
   }
 );
 
+/**
+ * Props for the Button component.
+ */
 interface ButtonProps
-  extends React.ComponentProps<"button">,
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  /**
+   * Whether to render as a child component using Radix UI Slot
+   */
   asChild?: boolean;
+  /**
+   * Icon to display on the left side of the chip
+   * Use "default" for a default chevron_left icon
+   */
   leadingIcon?: string;
+  /**
+   * Icon variant to display on the left side of the button
+   */
+  leadingIconVariant?: "filled" | "outlined";
+  /**
+   * Icon size to display on the left side of the button
+   */
+  leadingIconSize?: string;
+  /**
+   * Icon to display on the right side of the button
+   * Use "default" for a default chevron_right icon
+   */
   trailingIcon?: string;
+  /**
+   * Icon variant to display on the right side of the button
+   */
+  trailingIconVariant?: "filled" | "outlined";
+  /**
+   * Icon size to display on the right side of the button
+   */
+  trailingIconSize?: string;
+  /**
+   * Whether the button is disabled
+   */
   disabled?: boolean;
+  /**
+   * Additional CSS classes to apply to the button
+   */
+  className?: string;
+  /**
+   * Button content (text, elements, etc.)
+   */
+  children?: React.ReactNode;
+  /**
+   * Ref to be forwarded to the button element
+   */
+  ref?: React.RefObject<HTMLButtonElement>;
 }
 
 /**
@@ -69,13 +111,17 @@ interface ButtonProps
  * @param props - The button component props
  * @param props.variant - The visual style variant ("primary" | "secondary" | "tertiary")
  * @param props.size - The button size ("large" | "medium" | "small")
- * @param props.state - The button state (currently only "default")
  * @param props.asChild - If true, renders as a Slot component for composition
  * @param props.leadingIcon - Icon name to display before the button text
+ * @param props.leadingIconVariant - Icon variant to display before the button text
+ * @param props.leadingIconSize - Icon size to display before the button text
  * @param props.trailingIcon - Icon name to display after the button text
+ * @param props.trailingIconVariant - Icon variant to display after the button text
+ * @param props.trailingIconSize - Icon size to display after the button text
  * @param props.disabled - Whether the button is disabled
  * @param props.className - Additional CSS classes to apply
  * @param props.children - Button content (text, elements, etc.)
+ * @param ref - Ref to be forwarded to the button element
  *
  * @returns A button element with the specified styling and functionality
  *
@@ -86,42 +132,61 @@ interface ButtonProps
  * </Button>
  * ```
  */
-function Button({
-  className,
-  variant,
-  size,
-  state,
-  asChild = false,
-  leadingIcon,
-  trailingIcon,
-  children,
-  disabled,
-  ...props
-}: ButtonProps) {
-  const Comp = asChild ? Slot : "button";
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className,
+      variant = "primary",
+      size = "medium",
+      asChild = false,
+      leadingIcon,
+      leadingIconVariant = "outlined",
+      leadingIconSize = "20px",
+      trailingIconVariant = "outlined",
+      trailingIconSize = "20px",
+      trailingIcon,
+      children,
+      disabled = false,
+      ...props
+    },
+    ref
+  ) => {
+    const Comp = asChild ? Slot : "button";
 
-  return (
-    <Comp
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, state, className }))}
-      disabled={disabled}
-      {...props}
-    >
-      {leadingIcon && (
-        <Icon
-          size="20px"
-          name={leadingIcon === "default" ? "chevron_left" : leadingIcon}
-        />
-      )}
-      {children}
-      {trailingIcon && (
-        <Icon
-          size="20px"
-          name={trailingIcon === "default" ? "chevron_right" : trailingIcon}
-        />
-      )}
-    </Comp>
-  );
-}
+    const content = (
+      <>
+        {leadingIcon && (
+          <Icon
+            size={leadingIconSize}
+            name={leadingIcon === "default" ? "chevron_left" : leadingIcon}
+            variant={leadingIconVariant}
+          />
+        )}
+        {children}
+        {trailingIcon && (
+          <Icon
+            size={trailingIconSize}
+            name={trailingIcon === "default" ? "chevron_right" : trailingIcon}
+            variant={trailingIconVariant}
+          />
+        )}
+      </>
+    );
+
+    return (
+      <Comp
+        data-slot="button"
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        disabled={disabled}
+        {...props}
+      >
+        {content}
+      </Comp>
+    );
+  }
+);
+
+Button.displayName = "Button";
 
 export { Button, buttonVariants };

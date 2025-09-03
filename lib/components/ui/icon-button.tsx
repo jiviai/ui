@@ -25,14 +25,10 @@ const iconButtonVariants = cva(
         medium: "h-12 w-12 text-sm",
         small: "h-10 w-10 text-xs",
       },
-      state: {
-        default: "",
-      },
     },
     defaultVariants: {
       variant: "primary",
       size: "medium",
-      state: "default",
     },
     compoundVariants: [
       {
@@ -64,8 +60,18 @@ interface IconButtonProps
   asChild?: boolean;
   /** Name of the icon to display (defaults to "chevron_right") */
   iconName?: string;
+  /** Size of the icon to display (defaults to "20px") */
+  iconSize?: string;
+  /** Variant of the icon to display (defaults to "outlined") */
+  iconVariant?: "filled" | "outlined";
   /** Whether the button is disabled */
   disabled?: boolean;
+  /**
+   * Additional CSS classes to apply to the button
+   */
+  className?: string;
+  /** Size of the button (defaults to "medium") */
+  size?: "small" | "medium" | "large";
 }
 
 /**
@@ -74,47 +80,63 @@ interface IconButtonProps
  * @param className - Additional CSS classes to apply
  * @param variant - Button style variant: 'primary', 'secondary', or 'tertiary'
  * @param size - Button size: 'large', 'medium', or 'small'
- * @param state - Button state (currently only 'default' is available)
  * @param asChild - Whether to render as a child component using Radix UI Slot
  * @param iconName - Name of the icon to display (defaults to "chevron_right")
+ * @param size - Size of the button (defaults to "medium")
  * @param disabled - Whether the button is disabled
+ * @param iconSize - Size of the icon to display (defaults to "20px")
+ * @param iconVariant - Variant of the icon to display (defaults to "outlined")
+ * @param ref - Ref to be forwarded to the button element
  * @param props - Additional HTML button props
  * @returns A styled icon button component
  */
-function IconButton({
-  className,
-  variant,
-  size,
-  state,
-  asChild = false,
-  iconName = "chevron_right",
-  disabled,
-  ...props
-}: IconButtonProps) {
-  const Comp = asChild ? Slot : "button";
+const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      iconName = "chevron_right",
+      iconSize,
+      iconVariant = "outlined",
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
+    const Comp = asChild ? Slot : "button";
 
-  const getIconSize = () => {
-    switch (size) {
-      case "large":
-        return "24px";
-      case "small":
-        return "16px";
-      case "medium":
-      default:
-        return "20px";
-    }
-  };
+    const getIconSize = () => {
+      switch (size) {
+        case "large":
+          return "24px";
+        case "small":
+          return "16px";
+        case "medium":
+        default:
+          return "20px";
+      }
+    };
 
-  return (
-    <Comp
-      data-slot="icon-button"
-      className={cn(iconButtonVariants({ variant, size, state, className }))}
-      disabled={disabled}
-      {...props}
-    >
-      <Icon size={getIconSize()} name={iconName} />
-    </Comp>
-  );
-}
+    return (
+      <Comp
+        data-slot="icon-button"
+        className={cn(iconButtonVariants({ variant, size, className }))}
+        disabled={disabled}
+        ref={ref}
+        {...props}
+      >
+        <Icon
+          size={iconSize ?? getIconSize()}
+          name={iconName}
+          variant={iconVariant}
+        />
+      </Comp>
+    );
+  }
+);
+
+IconButton.displayName = "IconButton";
 
 export { IconButton, iconButtonVariants };

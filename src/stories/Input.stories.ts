@@ -4,7 +4,7 @@ import { fn } from "storybook/test";
 import { Input } from "../../lib/components/ui/input";
 
 const meta = {
-  title: "UI/Input",
+  title: "Atoms/Input",
   component: Input,
   parameters: {
     layout: "centered",
@@ -42,8 +42,13 @@ const meta = {
     type: {
       control: "text",
     },
+    onChange: {
+      action: "changed",
+    },
   },
-  args: { onChange: fn() },
+  args: {
+    onChange: fn(),
+  },
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -53,9 +58,5 @@ export const Default: Story = {
   args: {
     label: "Label",
     placeholder: "Placeholder text",
-    size: "medium",
-    error: false,
-    disabled: false,
-    type: "text",
   },
 };

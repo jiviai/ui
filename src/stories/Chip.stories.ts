@@ -4,7 +4,7 @@ import { fn } from "storybook/test";
 import { Chip } from "../../lib/components/ui/chip";
 
 const meta = {
-  title: "UI/Chip",
+  title: "Atoms/Chip",
   component: Chip,
   parameters: {
     layout: "centered",

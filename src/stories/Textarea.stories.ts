@@ -4,7 +4,7 @@ import { fn } from "storybook/test";
 import { Textarea } from "../../lib/components/ui/textarea";
 
 const meta = {
-  title: "UI/Textarea",
+  title: "Atoms/Textarea",
   component: Textarea,
   parameters: {
     layout: "centered",
@@ -39,8 +39,13 @@ const meta = {
     descriptionIcon: {
       control: "text",
     },
+    onChange: {
+      action: "changed",
+    },
   },
-  args: { onChange: fn() },
+  args: {
+    onChange: fn(),
+  },
 } satisfies Meta<typeof Textarea>;
 
 export default meta;
@@ -50,8 +55,5 @@ export const Default: Story = {
   args: {
     label: "Label",
     placeholder: "Placeholder text",
-    size: "medium",
-    error: false,
-    disabled: false,
   },
 };

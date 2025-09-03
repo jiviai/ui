@@ -48,6 +48,22 @@ interface ChipProps
    * @default false
    */
   selected?: boolean;
+  /**
+   * Icon size to display on the left side
+   */
+  leadingIconSize?: string;
+  /**
+   * Icon size to display on the right side
+   */
+  trailingIconSize?: string;
+  /**
+   * Icon variant to display on the left side
+   */
+  leadingIconVariant?: "filled" | "outlined";
+  /**
+   * Icon variant to display on the right side
+   */
+  trailingIconVariant?: "filled" | "outlined";
 }
 
 /**
@@ -56,11 +72,16 @@ interface ChipProps
  * @param props - The props for the Chip component
  * @param props.variant - The visual variant of the chip ("selection" or "tag")
  * @param props.leadingIcon - Optional icon to display on the left side
+ * @param props.leadingIconSize - Optional icon size to display on the left side
+ * @param props.leadingIconVariant - Optional icon variant to display on the left side
  * @param props.trailingIcon - Optional icon to display on the right side
+ * @param props.trailingIconSize - Optional icon size to display on the right side
+ * @param props.trailingIconVariant - Optional icon variant to display on the right side
  * @param props.disabled - Whether the chip is disabled
  * @param props.text - The text content to display
  * @param props.selected - Whether the chip is selected (for selection variant)
  * @param props.className - Additional CSS classes to apply
+ * @param ref - Ref to be forwarded to the button element
  *
  * @returns A button element styled as a chip
  *
@@ -81,47 +102,64 @@ interface ChipProps
  * <Chip text="Tag" variant="tag" />
  * ```
  */
-function Chip({
-  className,
-  variant,
-  leadingIcon,
-  trailingIcon,
-  disabled,
-  text,
-  selected = false,
-  ...props
-}: ChipProps) {
-  const getVariantClasses = () => {
-    if (variant === "selection") {
-      return selected
-        ? "bg-orange-500 text-white border-orange-500"
-        : "bg-white border-orange-500 text-orange-500";
-    }
-    return "";
-  };
+const Chip = React.forwardRef<HTMLButtonElement, ChipProps>(
+  (
+    {
+      className,
+      variant,
+      leadingIcon,
+      leadingIconSize = "16px",
+      trailingIconSize = "16px",
+      leadingIconVariant = "outlined",
+      trailingIconVariant = "outlined",
+      trailingIcon,
+      disabled,
+      text,
+      selected = false,
+      ...props
+    },
+    ref
+  ) => {
+    const getVariantClasses = () => {
+      if (variant === "selection") {
+        return selected
+          ? "bg-orange-500 text-white border-orange-500"
+          : "bg-white border-orange-500 text-orange-500";
+      }
+      return "";
+    };
 
-  return (
-    <button
-      data-slot="chip"
-      className={cn(chipVariants({ variant, className }), getVariantClasses())}
-      disabled={disabled}
-      {...props}
-    >
-      {leadingIcon && (
-        <Icon
-          size="16px"
-          name={leadingIcon === "default" ? "chevron_left" : leadingIcon}
-        />
-      )}
-      {text}
-      {trailingIcon && (
-        <Icon
-          size="16px"
-          name={trailingIcon === "default" ? "chevron_right" : trailingIcon}
-        />
-      )}
-    </button>
-  );
-}
+    return (
+      <button
+        data-slot="chip"
+        className={cn(
+          chipVariants({ variant, className }),
+          getVariantClasses()
+        )}
+        disabled={disabled}
+        ref={ref}
+        {...props}
+      >
+        {leadingIcon && (
+          <Icon
+            size={leadingIconSize}
+            variant={leadingIconVariant}
+            name={leadingIcon === "default" ? "chevron_left" : leadingIcon}
+          />
+        )}
+        {text}
+        {trailingIcon && (
+          <Icon
+            size={trailingIconSize}
+            variant={trailingIconVariant}
+            name={trailingIcon === "default" ? "chevron_right" : trailingIcon}
+          />
+        )}
+      </button>
+    );
+  }
+);
+
+Chip.displayName = "Chip";
 
 export { Chip };
