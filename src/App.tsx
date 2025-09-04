@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="min-h-screen p-8">
       <div className="max-w-4xl mx-auto space-y-8 flex flex-col gap-8">
-        <Icon name="home" className="text-green-500" variant="filled" />
+        <Icon name="home" className="text-ds-green-400" variant="filled" />
         <Button
           leadingIcon="home"
           leadingIconVariant="filled"

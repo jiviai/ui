@@ -278,7 +278,7 @@ const LeftSection: React.FC<{
         <div
           className={cn(
             "flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center",
-            "bg-primary-100 text-primary-main"
+            "bg-ds-primary-100 text-ds-primary-main"
           )}
         >
           <Icon
@@ -328,8 +328,8 @@ const LeftSection: React.FC<{
               className={cn(
                 "absolute inset-0 rounded border-2 transition-all duration-200 ease-in-out cursor-pointer",
                 leftCheckboxChecked
-                  ? "border-orange-500 bg-orange-500"
-                  : "border-gray-300 bg-white",
+                  ? "border-ds-orange-500 bg-ds-orange-500"
+                  : "border-ds-gray-300 bg-white",
                 leftCheckboxDisabled && "opacity-50 cursor-not-allowed"
               )}
               onClick={() =>
@@ -362,8 +362,8 @@ const LeftSection: React.FC<{
               className={cn(
                 "absolute inset-0 rounded-full border-2 transition-all duration-200 ease-in-out cursor-pointer",
                 leftRadioSelected
-                  ? "border-orange-500 bg-white"
-                  : "border-gray-300 bg-white",
+                  ? "border-ds-orange-500 bg-white"
+                  : "border-ds-gray-300 bg-white",
                 leftRadioDisabled && "opacity-50 cursor-not-allowed"
               )}
               onClick={() =>
@@ -371,7 +371,7 @@ const LeftSection: React.FC<{
               }
             />
             {leftRadioSelected && (
-              <div className="w-2 h-2 rounded-full bg-orange-500 transition-all duration-200 ease-in-out" />
+              <div className="w-2 h-2 rounded-full bg-ds-orange-500 transition-all duration-200 ease-in-out" />
             )}
           </div>
         </div>
@@ -418,11 +418,11 @@ const MiddleSection: React.FC<{
     // Title only or title with description
     return (
       <div className="flex-1 min-w-0">
-        <div className="text-sm font-medium text-gray-900 truncate">
+        <div className="text-sm font-medium text-ds-gray-900 truncate">
           {title}
         </div>
         {description && (
-          <div className="text-sm text-gray-600 truncate mt-0.5">
+          <div className="text-sm text-ds-gray-600 truncate mt-0.5">
             {description}
           </div>
         )}
@@ -435,11 +435,11 @@ const MiddleSection: React.FC<{
     return (
       <div className="flex-1 min-w-0 flex items-center justify-between gap-3">
         <div className="min-w-0">
-          <div className="text-sm font-medium text-gray-900 truncate">
+          <div className="text-sm font-medium text-ds-gray-900 truncate">
             {title}
           </div>
           {description && (
-            <div className="text-sm text-gray-600 truncate mt-0.5">
+            <div className="text-sm text-ds-gray-600 truncate mt-0.5">
               {description}
             </div>
           )}
@@ -467,9 +467,11 @@ const MiddleSection: React.FC<{
   // Title/description with button vertically aligned
   return (
     <div className="flex-1 min-w-0">
-      <div className="text-sm font-medium text-gray-900 truncate">{title}</div>
+      <div className="text-sm font-medium text-ds-gray-900 truncate">
+        {title}
+      </div>
       {description && (
-        <div className="text-sm text-gray-600 truncate mt-0.5">
+        <div className="text-sm text-ds-gray-600 truncate mt-0.5">
           {description}
         </div>
       )}
@@ -537,7 +539,7 @@ const RightSection: React.FC<{
   if (hasStatus) {
     return (
       <div className="flex-shrink-0 flex flex-col items-end gap-1">
-        <div className="text-sm font-medium text-gray-900">
+        <div className="text-sm font-medium text-ds-gray-900">
           {rightStatusTitle}
         </div>
         <Badge

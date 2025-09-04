@@ -15,10 +15,10 @@ const iconButtonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-orange-500 text-white shadow-xs active:bg-orange-800 active:bg-none",
+          "bg-ds-orange-500 text-white shadow-xs active:bg-ds-orange-800 active:bg-none",
         secondary:
-          "bg-white text-orange-500 border border-orange-300 shadow-xs active:bg-orange-100 active:border-orange-300",
-        tertiary: "bg-transparent text-orange-500",
+          "bg-white text-ds-orange-500 border border-ds-orange-300 shadow-xs active:bg-ds-orange-100 active:border-ds-orange-300",
+        tertiary: "bg-transparent text-ds-orange-500",
       },
       size: {
         large: "h-14 w-14 text-base",
@@ -34,16 +34,16 @@ const iconButtonVariants = cva(
       {
         variant: "primary",
         className:
-          "disabled:bg-gray-300 disabled:text-white disabled:shadow-none disabled:active:bg-gray-300",
+          "disabled:bg-ds-gray-300 disabled:text-white disabled:shadow-none disabled:active:bg-ds-gray-300",
       },
       {
         variant: "secondary",
         className:
-          "disabled:bg-white disabled:border-gray-200 disabled:text-gray-300 disabled:shadow-none disabled:active:bg-white disabled:active:border-gray-200",
+          "disabled:bg-white disabled:border-ds-gray-200 disabled:text-ds-gray-300 disabled:shadow-none disabled:active:bg-white disabled:active:border-ds-gray-200",
       },
       {
         variant: "tertiary",
-        className: "disabled:text-gray-300 disabled:active:text-gray-300",
+        className: "disabled:text-ds-gray-300 disabled:active:text-ds-gray-300",
       },
     ],
   }

@@ -119,26 +119,26 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
     const stateClasses = {
       radio: {
         selected: {
-          enabled: "border-orange-500 bg-white",
+          enabled: "border-ds-orange-500 bg-white",
           disabled: "border-gray-300 bg-white",
         },
         unselected: {
-          enabled: "border-gray-300 bg-white hover:border-orange-300",
-          disabled: "border-gray-200 bg-gray-100",
+          enabled: "border-ds-gray-300 bg-white hover:border-ds-orange-300",
+          disabled: "border-ds-gray-200 bg-ds-gray-100",
         },
       },
       dot: {
-        selected: "opacity-100 scale-100 bg-orange-500",
-        unselected: "opacity-0 scale-0 bg-orange-500",
+        selected: "opacity-100 scale-100 bg-ds-orange-500",
+        unselected: "opacity-0 scale-0 bg-ds-orange-500",
       },
       text: {
         label: {
-          enabled: "text-gray-900",
-          disabled: "text-gray-400",
+          enabled: "text-ds-gray-900",
+          disabled: "text-ds-gray-400",
         },
         description: {
-          enabled: "text-gray-600",
-          disabled: "text-gray-400",
+          enabled: "text-ds-gray-600",
+          disabled: "text-ds-gray-400",
         },
       },
     };
@@ -148,7 +148,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
      */
     const getRadioClasses = () => {
       const baseClasses =
-        "relative flex items-center justify-center w-4 h-4 rounded-full border-2 transition-all duration-200 ease-in-out focus-within:ring-2 focus-within:ring-orange-500/20 focus-within:ring-offset-2";
+        "relative flex items-center justify-center w-4 h-4 rounded-full border-2 transition-all duration-200 ease-in-out focus-within:ring-2 focus-within:ring-ds-orange-500/20 focus-within:ring-offset-2";
 
       const stateKey = selected ? "selected" : "unselected";
       const enabledKey = disabled ? "disabled" : "enabled";

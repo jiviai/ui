@@ -31,106 +31,106 @@ const badgeVariants = cva(
       {
         variant: "default",
         status: "success",
-        class: "text-green-main",
+        class: "text-ds-green-main",
       },
       {
         variant: "light",
         status: "success",
-        class: "bg-green-100 text-green-main",
+        class: "bg-ds-green-100 text-ds-green-main",
       },
       {
         variant: "dark",
         status: "success",
-        class: "bg-green-main text-white",
+        class: "bg-ds-green-main text-white",
       },
       {
         variant: "outline",
         status: "success",
-        class: "text-green-main border-green-main border",
+        class: "text-ds-green-main border-ds-green-main border",
       },
       // Warning variants
       {
         variant: "default",
         status: "warning",
-        class: "text-yellow-main",
+        class: "text-ds-yellow-main",
       },
       {
         variant: "light",
         status: "warning",
-        class: "bg-yellow-100 text-yellow-main",
+        class: "bg-ds-yellow-100 text-ds-yellow-main",
       },
       {
         variant: "dark",
         status: "warning",
-        class: "bg-yellow-main text-white",
+        class: "bg-ds-yellow-main text-white",
       },
       {
         variant: "outline",
         status: "warning",
-        class: "text-yellow-main border-yellow-main border",
+        class: "text-ds-yellow-main border-ds-yellow-main border",
       },
       // Error variants
       {
         variant: "default",
         status: "error",
-        class: "text-red-main",
+        class: "text-ds-red-main",
       },
       {
         variant: "light",
         status: "error",
-        class: "bg-red-100 text-red-main",
+        class: "bg-ds-red-100 text-ds-red-main",
       },
       {
         variant: "dark",
         status: "error",
-        class: "bg-red-main text-white",
+        class: "bg-ds-red-main text-white",
       },
       {
         variant: "outline",
         status: "error",
-        class: "text-red-main border-red-main border",
+        class: "text-ds-red-main border-ds-red-main border",
       },
       // Inactive variants
       {
         variant: "default",
         status: "inactive",
-        class: "text-gray-300",
+        class: "text-ds-gray-300",
       },
       {
         variant: "light",
         status: "inactive",
-        class: "bg-gray-100 text-gray-300",
+        class: "bg-ds-gray-100 text-ds-gray-300",
       },
       {
         variant: "dark",
         status: "inactive",
-        class: "bg-gray-300 text-white",
+        class: "bg-ds-gray-300 text-white",
       },
       {
         variant: "outline",
         status: "inactive",
-        class: "text-gray-300 border-gray-300 border",
+        class: "text-ds-gray-300 border-ds-gray-300 border",
       },
       // Default variants
       {
         variant: "default",
         status: "default",
-        class: "text-primary-main",
+        class: "text-ds-primary-main",
       },
       {
         variant: "light",
         status: "default",
-        class: "bg-primary-100 text-primary-main",
+        class: "bg-ds-primary-100 text-ds-primary-main",
       },
       {
         variant: "dark",
         status: "default",
-        class: "bg-primary-main text-white",
+        class: "bg-ds-primary-main text-white",
       },
       {
         variant: "outline",
         status: "default",
-        class: "text-primary-main border-primary-main border",
+        class: "text-ds-primary-main border-ds-primary-main border",
       },
     ],
     defaultVariants: {

@@ -120,12 +120,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const stateClasses = {
       checkbox: {
         checked: {
-          enabled: "border-orange-500 bg-orange-500",
-          disabled: "border-gray-300 bg-gray-300",
+          enabled: "border-ds-orange-500 bg-ds-orange-500",
+          disabled: "border-ds-gray-300 bg-ds-gray-300",
         },
         unchecked: {
-          enabled: "border-gray-300 bg-white hover:border-orange-300",
-          disabled: "border-gray-200 bg-gray-100",
+          enabled: "border-ds-gray-300 bg-white hover:border-ds-orange-300",
+          disabled: "border-ds-gray-200 bg-ds-gray-100",
         },
       },
       checkmark: {
@@ -134,12 +134,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       },
       text: {
         label: {
-          enabled: "text-gray-900",
-          disabled: "text-gray-400",
+          enabled: "text-ds-gray-900",
+          disabled: "text-ds-gray-400",
         },
         description: {
-          enabled: "text-gray-600",
-          disabled: "text-gray-400",
+          enabled: "text-ds-gray-600",
+          disabled: "text-ds-gray-400",
         },
       },
     };
@@ -149,7 +149,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
      */
     const getCheckboxClasses = () => {
       const baseClasses =
-        "relative flex items-center justify-center w-4 h-4 rounded border-2 transition-all duration-200 ease-in-out focus-within:ring-2 focus-within:ring-orange-500/20 focus-within:ring-offset-2";
+        "relative flex items-center justify-center w-4 h-4 rounded border-2 transition-all duration-200 ease-in-out focus-within:ring-2 focus-within:ring-ds-orange-500/20 focus-within:ring-offset-2";
 
       const stateKey = checked ? "checked" : "unchecked";
       const enabledKey = disabled ? "disabled" : "enabled";

@@ -215,22 +215,22 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     // State-based class maps for easier modification
     const stateClasses = {
       border: {
-        disabled: "border-gray-200",
-        error: "border-red-500",
-        focused: "border-orange-500",
-        hasValue: "border-gray-400",
-        default: "border-gray-200",
+        disabled: "border-ds-gray-200",
+        error: "border-ds-red-500",
+        focused: "border-ds-orange-500",
+        hasValue: "border-ds-gray-400",
+        default: "border-ds-gray-200",
       },
       text: {
-        disabled: "text-gray-200",
-        error: "text-red-500",
-        focused: "text-orange-500",
+        disabled: "text-ds-gray-200",
+        error: "text-ds-red-500",
+        focused: "text-ds-orange-500",
         hasValue: "text-black",
-        default: "text-gray-400",
+        default: "text-ds-gray-400",
       },
       icon: {
-        disabled: "text-gray-200",
-        error: "text-red-500",
+        disabled: "text-ds-gray-200",
+        error: "text-ds-red-500",
         default: "text-black",
       },
     };
