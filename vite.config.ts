@@ -16,6 +16,8 @@ export default defineConfig({
       include: ["lib"],
       rollupTypes: true,
       tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
+      outDir: "dist",
+      entryRoot: "lib",
     }),
   ],
   resolve: {
@@ -26,8 +28,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
-      name: "jivi-ui",
-      fileName: (format) => `jivi-ui.${format}.js`,
+      name: "DesignSystem",
+      fileName: (format) => `design-system.${format}.js`,
       formats: ["es"],
     },
     copyPublicDir: false,
