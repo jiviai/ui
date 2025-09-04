@@ -108,9 +108,3 @@
   --green-300: #54bb8a;
   --green-400: #009a51; /* Main */
 }
-
-.material-symbols-filled {
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, /* filled */ "wght" 400, "GRAD" 0,
-    "opsz" 48;
-}
