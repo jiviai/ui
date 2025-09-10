@@ -8,4 +8,5 @@ export * from "./ui/icon-badge";
 export * from "./ui/radio-button";
 export * from "./ui/checkbox";
 export * from "./ui/list-item";
+export * from "./ui/list";
 export * from "./icon";

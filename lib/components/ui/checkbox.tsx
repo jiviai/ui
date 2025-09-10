@@ -121,11 +121,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       checkbox: {
         checked: {
           enabled: "border-ds-orange-500 bg-ds-orange-500",
-          disabled: "border-ds-gray-300 bg-ds-gray-300",
+          disabled: "border-ds-grey-300 bg-ds-grey-300",
         },
         unchecked: {
-          enabled: "border-ds-gray-300 bg-white hover:border-ds-orange-300",
-          disabled: "border-ds-gray-200 bg-ds-gray-100",
+          enabled: "border-ds-grey-300 bg-white hover:border-ds-orange-300",
+          disabled: "border-ds-grey-200 bg-ds-grey-100",
         },
       },
       checkmark: {
@@ -134,12 +134,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       },
       text: {
         label: {
-          enabled: "text-ds-gray-900",
-          disabled: "text-ds-gray-400",
+          enabled: "text-ds-grey-900",
+          disabled: "text-ds-grey-400",
         },
         description: {
-          enabled: "text-ds-gray-600",
-          disabled: "text-ds-gray-400",
+          enabled: "text-ds-grey-600",
+          disabled: "text-ds-grey-400",
         },
       },
     };

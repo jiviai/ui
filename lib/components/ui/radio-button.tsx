@@ -123,8 +123,8 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
           disabled: "border-gray-300 bg-white",
         },
         unselected: {
-          enabled: "border-ds-gray-300 bg-white hover:border-ds-orange-300",
-          disabled: "border-ds-gray-200 bg-ds-gray-100",
+          enabled: "border-ds-grey-300 bg-white hover:border-ds-orange-300",
+          disabled: "border-ds-grey-200 bg-ds-grey-100",
         },
       },
       dot: {
@@ -133,12 +133,12 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
       },
       text: {
         label: {
-          enabled: "text-ds-gray-900",
-          disabled: "text-ds-gray-400",
+          enabled: "text-ds-grey-900",
+          disabled: "text-ds-grey-400",
         },
         description: {
-          enabled: "text-ds-gray-600",
-          disabled: "text-ds-gray-400",
+          enabled: "text-ds-grey-600",
+          disabled: "text-ds-grey-400",
         },
       },
     };

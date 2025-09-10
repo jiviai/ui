@@ -34,16 +34,16 @@ const iconButtonVariants = cva(
       {
         variant: "primary",
         className:
-          "disabled:bg-ds-gray-300 disabled:text-white disabled:shadow-none disabled:active:bg-ds-gray-300",
+          "disabled:bg-ds-grey-300 disabled:text-white disabled:shadow-none disabled:active:bg-ds-grey-300",
       },
       {
         variant: "secondary",
         className:
-          "disabled:bg-white disabled:border-ds-gray-200 disabled:text-ds-gray-300 disabled:shadow-none disabled:active:bg-white disabled:active:border-ds-gray-200",
+          "disabled:bg-white disabled:border-ds-grey-200 disabled:text-ds-grey-300 disabled:shadow-none disabled:active:bg-white disabled:active:border-ds-grey-200",
       },
       {
         variant: "tertiary",
-        className: "disabled:text-ds-gray-300 disabled:active:text-ds-gray-300",
+        className: "disabled:text-ds-grey-300 disabled:active:text-ds-grey-300",
       },
     ],
   }

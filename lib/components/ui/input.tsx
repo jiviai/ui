@@ -218,21 +218,21 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     // State-based class maps for easier modification
     const stateClasses = {
       border: {
-        disabled: "border-ds-gray-200",
+        disabled: "border-ds-grey-200",
         error: "border-ds-red-500",
         focused: "border-ds-orange-500",
-        hasValue: "border-ds-gray-400",
-        default: "border-ds-gray-200",
+        hasValue: "border-ds-grey-400",
+        default: "border-ds-grey-200",
       },
       text: {
-        disabled: "text-ds-gray-200",
+        disabled: "text-ds-grey-200",
         error: "text-ds-red-500",
         focused: "text-ds-orange-500",
         hasValue: "text-black",
-        default: "text-ds-gray-300",
+        default: "text-ds-grey-300",
       },
       icon: {
-        disabled: "text-ds-gray-200",
+        disabled: "text-ds-grey-200",
         error: "text-ds-red-500",
         default: "text-black",
       },

@@ -15,6 +15,7 @@ function App() {
           trailingIcon="chevron_right"
           trailingIconVariant="outlined"
           trailingIconSize="20px"
+          variant="secondary"
         >
           Click me
         </Button>
@@ -36,6 +37,7 @@ function App() {
           leftType="small-icon"
           leftIcon="home"
           rightIcon="home"
+          disabled
         />
         <ListItem
           title="List Item"
@@ -49,6 +51,7 @@ function App() {
           rightBadgeIcon="check_circle"
           rightBadgeIconVariant="filled"
           rightBadgeIconSize="12px"
+          disabled
         />
         <ListItem
           title="List Item"
@@ -59,6 +62,7 @@ function App() {
           buttonAlignment="horizontal"
           buttonLeadingIcon="home"
           buttonTrailingIcon="chevron_right"
+          disabled
           onButtonClick={() => {
             console.log("Button clicked");
           }}
@@ -71,12 +75,14 @@ function App() {
           description="List Item Description"
           leftType="small-icon"
           leftIcon="home"
+          disabled
         />
         <ListItem
           title="List Item"
           description="List Item Description"
           leftType="small-icon"
           leftIcon="home"
+          disabled
         />
       </div>
     </div>

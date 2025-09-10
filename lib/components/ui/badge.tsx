@@ -94,22 +94,22 @@ const badgeVariants = cva(
       {
         variant: "default",
         status: "inactive",
-        class: "text-ds-gray-300",
+        class: "text-ds-grey-300",
       },
       {
         variant: "light",
         status: "inactive",
-        class: "bg-ds-gray-100 text-ds-gray-300",
+        class: "bg-ds-grey-100 text-ds-grey-300",
       },
       {
         variant: "dark",
         status: "inactive",
-        class: "bg-ds-gray-300 text-white",
+        class: "bg-ds-grey-300 text-white",
       },
       {
         variant: "outline",
         status: "inactive",
-        class: "text-ds-gray-300 border-ds-gray-300 border",
+        class: "text-ds-grey-300 border-ds-grey-300 border",
       },
       // Default variants
       {
