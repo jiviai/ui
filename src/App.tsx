@@ -13,7 +13,7 @@ function App() {
         onButtonClick={() => console.log("Continue")}
         rightIcon="close"
         onRightIconClick={() => console.log("Close")}
-        className="rounded-xl"
+        className=""
       />
     </div>
   );
