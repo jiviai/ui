@@ -11,7 +11,7 @@ import { Badge } from "./badge";
  * Creates consistent list item styling with different variants
  */
 const listItemVariants = cva(
-  "flex items-center gap-3 p-4 transition-all duration-200 ease-in-out",
+  "flex items-center gap-3 transition-all duration-200 ease-in-out",
   {
     variants: {
       clickable: {
@@ -512,7 +512,7 @@ const RightSection: React.FC<{
 }> = ({
   rightIcon,
   rightIconVariant = "outlined",
-  rightIconSize = "20px",
+  rightIconSize = "16px",
   rightStatusTitle,
   rightBadgeText,
   rightBadgeVariant = "light",

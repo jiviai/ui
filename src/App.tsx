@@ -1,5 +1,6 @@
 import { Alert } from "../lib/components/ui/alert";
 import { Slider } from "../lib/components/ui/slider";
+import { ListItem } from "../lib/components/ui/list-item";
 import { useState } from "react";
 
 function App() {
@@ -19,6 +20,14 @@ function App() {
         className=""
       />
       <Slider value={value} onChange={setValue} min={0} max={100} />
+      <ListItem
+        clickable
+        leftType="large-icon"
+        leftIcon="person"
+        title="John Doe"
+        description="Software Engineer"
+        onClick={() => console.log("Button clicked")}
+      />
     </div>
   );
 }

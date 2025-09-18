@@ -102,7 +102,7 @@ const List = React.forwardRef<HTMLDivElement, ListProps>(
 
             {/* Add divider if not the last item and showDividers is true */}
             {showDividers && index < childrenArray.length - 1 && (
-              <div className="m-auto border-b border-ds-grey-200 w-[90%]" />
+              <div className="m-auto border-b border-ds-grey-100 w-full" />
             )}
           </React.Fragment>
         ))}
