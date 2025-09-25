@@ -116,6 +116,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       disabled,
       description,
       descriptionIcon,
+      onFocus,
+      onBlur,
       ...props
     },
     ref
@@ -146,7 +148,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
      */
     const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
       setIsFocused(true);
-      props.onFocus?.(e);
+      onFocus?.(e);
     };
 
     /**
@@ -155,7 +157,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
      */
     const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
       setIsFocused(false);
-      props.onBlur?.(e);
+      onBlur?.(e);
     };
 
     /**
