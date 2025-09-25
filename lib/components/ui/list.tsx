@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const listVariants = cva(
-  "bg-white rounded-xl border border-ds-grey-100 overflow-hidden",
+  "bg-white rounded-xl border border-ds-grey-100 overflow-hidden  px-2",
   {
     variants: {
       size: {

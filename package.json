@@ -1,6 +1,6 @@
 {
   "name": "@jivi.ai/design-system",
-  "version": "0.6.2",
+  "version": "0.6.4",
   "type": "module",
   "files": [
     "dist"

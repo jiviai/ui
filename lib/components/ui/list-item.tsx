@@ -11,7 +11,7 @@ import { Badge } from "./badge";
  * Creates consistent list item styling with different variants
  */
 const listItemVariants = cva(
-  "flex items-center gap-3 transition-all duration-200 ease-in-out",
+  "flex items-center gap-3 px-0 py-2 transition-all duration-200 ease-in-out",
   {
     variants: {
       clickable: {
