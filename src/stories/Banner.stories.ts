@@ -3,7 +3,7 @@ import { fn } from "storybook/test";
 import { Banner } from "../../lib/components/ui/banner";
 
 const meta = {
-  title: "Components/Banner",
+  title: "Molecules/Banner",
   component: Banner,
   parameters: {
     layout: "centered",
