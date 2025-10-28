@@ -12,4 +12,5 @@ export * from "./ui/list-item";
 export * from "./ui/list";
 export * from "./ui/slider";
 export * from "./ui/switch";
+export * from "./ui/banner";
 export * from "./icon";
