@@ -32,6 +32,8 @@ This design system includes the following components:
 - **Checkbox** - Multiple selection input
 - **ListItem** - Structured list components
 - **Icon** - Icon component using Lucide React icons
+- **Banner** - Versatile promotional banners with image positioning and layout options
+
 
 ## Usage
 
