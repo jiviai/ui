@@ -2,7 +2,12 @@ import { Alert } from "../lib/components/ui/alert";
 import { Slider } from "../lib/components/ui/slider";
 import { ListItem } from "../lib/components/ui/list-item";
 import { useState } from "react";
-import { Banner } from "../../ui/lib/components/ui/banner";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "../lib/components/ui/tabs";
 
 function App() {
   const [value, setValue] = useState(50);
@@ -30,19 +35,47 @@ function App() {
         onClick={() => console.log("Button clicked")}
       />
 
-      <Banner
-        heading="Lorem ipsum"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-        infoText="This is important information about the banner"
-        buttonText="Button text"
-        imageUrl="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop"
-        onClick={() => console.log("Viewing profiles")}
-        className="w-full border border-ds-grey-100"
-        imageAlt="Meet Our Team"
-        isBgColor={false}
-        imageAlignment="left"
-        variant="row"
-      />
+
+     {/* tabs design */}
+      <Tabs defaultValue="account" className="w-full">
+        <TabsList size="medium">
+          <TabsTrigger value="account" icon="person">
+            Account
+          </TabsTrigger>
+          <TabsTrigger value="password" icon="lock">
+            Password
+          </TabsTrigger>
+          <TabsTrigger value="customize" icon="tune">
+            Customize
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="account">
+          <div className="p-4 bg-white rounded-lg ">
+            <h3 className="text-lg font-semibold mb-2">Account</h3>
+            <p className="text-sm text-ds-grey-600">
+              Make changes to your account here. Click save when you're done.
+            </p>
+          </div>
+        </TabsContent>
+        <TabsContent value="password">
+          <div className="p-4 bg-white rounded-lg ">
+            <h3 className="text-lg font-semibold mb-2">Password</h3>
+            <p className="text-sm text-ds-grey-600">
+              Change your password here. After saving, you'll be logged out.
+            </p>
+          </div>
+        </TabsContent>
+        <TabsContent value="customize">
+          <div className="p-4 bg-white rounded-lg ">
+            <h3 className="text-lg font-semibold mb-2">Settings</h3>
+            <p className="text-sm text-ds-grey-600">
+              Update your preferences and settings here.
+            </p>
+          </div>
+        </TabsContent>
+      </Tabs>
+
+
     </div>
   );
 }
