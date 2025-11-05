@@ -3,6 +3,7 @@ export * from "./ui/button";
 export * from "./ui/icon-button";
 export * from "./ui/input";
 export * from "./ui/textarea";
+export * from "./ui/stepper";
 export * from "./ui/chip";
 export * from "./ui/badge";
 export * from "./ui/icon-badge";
