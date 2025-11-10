@@ -15,4 +15,5 @@ export * from "./ui/slider";
 export * from "./ui/switch";
 export * from "./ui/banner";
 export * from "./ui/tabs";
+export * from "./ui/header";
 export * from "./icon";
