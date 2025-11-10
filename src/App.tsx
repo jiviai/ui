@@ -4,7 +4,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-ds-grey-50">
       <Header
-        title="Header"
+        title="Lorem ipsum dolor sit amet"
         size="medium"
         backButton={true}
         onBackClick={() => console.log("Back clicked")}

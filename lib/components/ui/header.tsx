@@ -82,15 +82,6 @@ interface HeaderProps
   secondaryIconVariant?: "filled" | "outlined";
   /** Optional callback when secondary icon is clicked */
   onSecondaryIconClick?: () => void;
-
-  /** Optional aria-label for back button */
-  backButtonAriaLabel?: string;
-  /** Optional aria-label for button */
-  buttonAriaLabel?: string;
-  /** Optional aria-label for primary icon */
-  primaryIconAriaLabel?: string;
-  /** Optional aria-label for secondary icon */
-  secondaryIconAriaLabel?: string;
 }
 
 /**
@@ -113,10 +104,6 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
       secondaryIcon,
       secondaryIconVariant = "filled",
       onSecondaryIconClick,
-      backButtonAriaLabel = "Go back",
-      buttonAriaLabel,
-      primaryIconAriaLabel,
-      secondaryIconAriaLabel,
       ...props
     },
     ref
@@ -127,7 +114,7 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
         case "small":
           return "0.875rem";
         case "large":
-          return "1.125rem";
+          return "1.5rem";
         case "medium":
         default:
           return "1rem";
@@ -195,7 +182,7 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
               type="button"
               onClick={onBackClick}
               className="inline-flex items-center justify-center p-1 sm:p-1.5 md:p-2 rounded-full hover:bg-ds-grey-100 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ds-orange-500 focus-visible:ring-offset-2 flex-shrink-0 box-border"
-              aria-label={backButtonAriaLabel}
+              aria-label="Go back"
             >
               <Icon
                 name={backIcon}
@@ -218,7 +205,6 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
               variant={buttonVariant}
               size={getButtonSize()}
               onClick={onButtonClick}
-              aria-label={buttonAriaLabel}
               className={cn(
                 getButtonHeightClass(),
                 "max-w-[7.5rem] sm:max-w-[9.375rem] md:max-w-[11.25rem] lg:max-w-[12.5rem] xl:max-w-none truncate box-border"
@@ -235,7 +221,6 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
               variant={primaryIconVariant === "outlined" ? "secondary" : "primary"}
               size={getButtonSize()}
               onClick={onPrimaryIconClick}
-              aria-label={primaryIconAriaLabel}
               className={cn(
                 getIconButtonSizeClass(),
                 "flex-shrink-0 box-border",
@@ -252,7 +237,6 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
               iconSize={getIconSize()}
               variant={secondaryIconVariant === "outlined" ? "secondary" : "primary"}
               size={getButtonSize()}
-              aria-label={secondaryIconAriaLabel}
               onClick={onSecondaryIconClick}
               className={cn(
                 getIconButtonSizeClass(),
