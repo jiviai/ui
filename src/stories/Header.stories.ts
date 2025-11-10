@@ -12,7 +12,7 @@ const meta = {
   argTypes: {
     title: {
       control: "text",
-      description: "Optional header text",
+      description: "Header title text or React node",
       table: {
         type: { summary: "string | ReactNode" },
       },
@@ -20,61 +20,57 @@ const meta = {
     size: {
       control: "select",
       options: ["small", "medium", "large"],
-      description: "Optional size variant for the header",
+      description: "Header size variant",
     },
-    // Back Button Group
     backButton: {
       control: "text",
-      description: "Optional back button icon (string) or set to true for default arrow_back",
+      description: "Show back button. Pass icon name string or `true` for default arrow",
       table: {
         type: { summary: "boolean | string" },
       },
     },
     onBackClick: {
       action: "backClicked",
-      description: "Optional callback when back button is clicked",
+      description: "Back button click handler",
     },
-    // Header Button Group
     buttonText: {
       control: "text",
-      description: "Optional text for the button",
+      description: "Text button label",
     },
     buttonVariant: {
       control: "select",
       options: ["primary", "secondary", "tertiary"],
-      description: "Optional button variant",
+      description: "Text button style variant",
     },
     onButtonClick: {
       action: "buttonClicked",
-      description: "Optional callback when button is clicked",
+      description: "Text button click handler",
     },
-    // Primary Icon Group
     primaryIcon: {
       control: "text",
-      description: "Optional primary icon name",
+      description: "Primary icon name",
     },
     primaryIconVariant: {
       control: "select",
       options: ["filled", "outlined"],
-      description: "Optional primary icon variant - outlined shows light background with border, filled shows solid orange",
+      description: "Primary icon style variant",
     },
     onPrimaryIconClick: {
       action: "primaryIconClicked",
-      description: "Optional callback when primary icon is clicked",
+      description: "Primary icon click handler",
     },
-    // Secondary Icon Group
     secondaryIcon: {
       control: "text",
-      description: "Optional secondary icon name",
+      description: "Secondary icon name",
     },
     secondaryIconVariant: {
       control: "select",
       options: ["filled", "outlined"],
-      description: "Optional secondary icon variant - outlined shows light background with border, filled shows solid orange",
+      description: "Secondary icon style variant",
     },
     onSecondaryIconClick: {
       action: "secondaryIconClicked",
-      description: "Optional callback when secondary icon is clicked",
+      description: "Secondary icon click handler",
     },
   },
   args: {
@@ -91,9 +87,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**
- * Basic header with title only (mandatory)
- */
 export const Default: Story = {
   args: {
     title: "Header",
