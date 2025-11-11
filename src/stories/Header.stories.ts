@@ -72,6 +72,10 @@ const meta = {
       action: "secondaryIconClicked",
       description: "Secondary icon click handler",
     },
+    className:{
+      control: "text",
+      description: "Class name for the header",
+    }
   },
   args: {
     title: "Header",

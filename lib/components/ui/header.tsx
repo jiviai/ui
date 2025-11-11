@@ -82,6 +82,8 @@ interface HeaderProps
   secondaryIconVariant?: "filled" | "outlined";
   /** Optional callback when secondary icon is clicked */
   onSecondaryIconClick?: () => void;
+  /** Optional class name for the header */
+  className?: string;
 }
 
 /**
