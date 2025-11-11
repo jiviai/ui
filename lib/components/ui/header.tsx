@@ -60,8 +60,10 @@ interface HeaderProps
   title?: React.ReactNode;
   /** Size variant for the header */
   size?: "small" | "medium" | "large";
-  /** Optional back button icon (string) or boolean to show default arrow */
-  backButton?: boolean | string;
+  /** Show back button */
+  showBackButton?: boolean;
+  /** Back button icon name (defaults to "arrow_back" if showBackButton is true) */
+  backButtonIcon?: string;
   /** Optional callback when back button is clicked */
   onBackClick?: () => void;
   /** Optional text for the button */
@@ -95,7 +97,8 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
       className,
       title,
       size = "medium",
-      backButton,
+      showBackButton = true,
+      backButtonIcon = "arrow_back",
       onBackClick,
       buttonText,
       buttonVariant = "tertiary",
@@ -161,15 +164,6 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
       }
     };
 
-    // Get back button icon
-    const getBackButtonIcon = () => {
-      if (typeof backButton === "string") return backButton;
-      if (backButton === true) return "arrow_back";
-      return null;
-    };
-
-    const backIcon = getBackButtonIcon();
-
     return (
       <div
         ref={ref}
@@ -179,7 +173,7 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
       >
         {/* Left Section - Back Button and Title */}
         <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 flex-1 min-w-0 pr-1.5 sm:pr-2 md:pr-3 lg:pr-4 overflow-hidden box-border">
-          {backIcon && (
+          {showBackButton && (
             <button
               type="button"
               onClick={onBackClick}
@@ -187,7 +181,7 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
               aria-label="Go back"
             >
               <Icon
-                name={backIcon}
+                name={backButtonIcon}
                 variant="outlined"
                 size={getIconSize()}
               />
@@ -218,7 +212,7 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
           {primaryIcon && (
             <IconButton
               iconName={primaryIcon}
-              iconVariant="filled"
+              iconVariant={primaryIconVariant}
               iconSize={getIconSize()}
               variant={primaryIconVariant === "outlined" ? "secondary" : "primary"}
               size={getButtonSize()}
@@ -235,7 +229,7 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
           {secondaryIcon && (
             <IconButton
               iconName={secondaryIcon}
-              iconVariant="filled"
+              iconVariant={secondaryIconVariant}
               iconSize={getIconSize()}
               variant={secondaryIconVariant === "outlined" ? "secondary" : "primary"}
               size={getButtonSize()}

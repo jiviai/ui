@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Header } from "../../lib/components/ui/header";
 
 const meta = {
-  title: "Atoms/Header",
+  title: "Molecules/Header",
   component: Header,
   parameters: {
     layout: "centered",
@@ -22,16 +22,19 @@ const meta = {
       options: ["small", "medium", "large"],
       description: "Header size variant",
     },
-    backButton: {
+    showBackButton: {
+      control: "boolean",
+      description: "Show back button",
+    },
+    backButtonIcon: {
       control: "text",
-      description: "Show back button. Pass icon name string or `true` for default arrow",
-      table: {
-        type: { summary: "boolean | string" },
-      },
+      description: "Back button icon name (defaults to 'arrow_back' if showBackButton is true)",
+      if: { arg: "showBackButton" },
     },
     onBackClick: {
       action: "backClicked",
       description: "Back button click handler",
+      if: { arg: "showBackButton" },
     },
     buttonText: {
       control: "text",
@@ -80,7 +83,8 @@ const meta = {
   args: {
     title: "Header",
     size: "medium",
-    backButton: true,
+    showBackButton: true,
+    backButtonIcon: "arrow_back",
     buttonText: "Button text",
     buttonVariant: "primary",
     primaryIcon: "info",
