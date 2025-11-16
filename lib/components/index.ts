@@ -16,4 +16,5 @@ export * from "./ui/switch";
 export * from "./ui/banner";
 export * from "./ui/tabs";
 export * from "./ui/header";
+export * from "./ui/bottom-sheet";
 export * from "./icon";

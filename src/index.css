@@ -107,3 +107,12 @@
   --ds-green-300: #54bb8a;
   --ds-green-400: #009a51; /* Main */
 }
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
