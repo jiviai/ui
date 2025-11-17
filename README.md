@@ -34,7 +34,7 @@ This design system includes the following components:
 - **Icon** - Icon component using Lucide React icons
 - **Banner** - Versatile promotional banners with image positioning and layout options
 - **Tabs** - Accessible tabbed navigation with underline style, icons, and multiple sizes
-
+- **Header** - App header component with title, optional back button, text button, and up to two icon buttons with multiple sizes 
 
 ## Usage
 
